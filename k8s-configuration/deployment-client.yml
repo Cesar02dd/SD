@@ -20,3 +20,6 @@ spec:
           image: cesar02dd/client:8c6a999944d5a80ed12d0835d0937e6c353f3d92
           ports:
             - containerPort: 5173
+          env:
+            - name: API_REGISTER_ENDPOINT
+              value: http://server
