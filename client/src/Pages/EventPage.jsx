@@ -17,10 +17,12 @@ const EventPage = () => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
+    const apiUrl = process.env.SERVER_URL;
+
     useEffect(() => {
         const fetchApis = async () => {
             try {
-                const responseEvents = await fetch('http://server:8000/api/events', {
+                const responseEvents = await fetch(`${apiUrl}/api/events`, {
                     method: 'GET',
                     headers: {
                         'Content-Type': 'application/json',

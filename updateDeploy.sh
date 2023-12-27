@@ -1,9 +1,9 @@
 #!/bin/bash
 
 COMMIT_HASH=$(git rev-parse HEAD)
-DEPLOYMENT_SERVER_FILE="../k8s-configuration/deployment-server.yml"
-DEPLOYMENT_CLIENT_FILE="../k8s-configuration/deployment-client.yml"
-GITHUB_ACTIONS_FILE="../.github/workflows/main.yml" 
+DEPLOYMENT_SERVER_FILE="k8s-configuration/deployment-server.yml"
+DEPLOYMENT_CLIENT_FILE="k8s-configuration/deployment-client.yml"
+GITHUB_ACTIONS_FILE=".github/workflows/main.yml" 
 
 OS="$(uname)"
 if [ "$OS" = "Darwin" ]; then

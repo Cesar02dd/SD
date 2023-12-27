@@ -25,3 +25,4 @@ package-lock.json
 client/globals.jsx
 client/globals.jsx
 client/globals.jsx
+client/.env

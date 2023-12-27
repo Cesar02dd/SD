@@ -8,6 +8,8 @@ import { Link } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 
+const apiUrl = process.env.SERVER_URL;
+
 const Login = () => {
     const [loginData, setLoginData] = useState({
         email: '',
@@ -21,7 +23,7 @@ const Login = () => {
         });
       };
       const handleSearch = () => {
-        fetch('http://127.0.0.1:8000/api/events', {
+        fetch(`${apiUrl}/api/events`, {
           method: 'POST', 
           headers: {
             'Content-Type': 'application/json',

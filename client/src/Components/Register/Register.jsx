@@ -15,6 +15,8 @@ const Register = () => {
     const navigate = useNavigate();
     const eventId = location.state ? location.state.event : null;
 
+    const apiUrl = process.env.SERVER_URL;
+
     const [registerData, setRegisterData] = useState({
         email: '',
         event_id: 0,
@@ -31,7 +33,7 @@ const Register = () => {
         registerData.event_id = eventId;
         console.log(JSON.stringify(registerData));
 
-        fetch('http://server:8000/api/register', {
+        fetch(`${apiUrl}/api/events`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
