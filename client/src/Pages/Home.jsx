@@ -15,7 +15,7 @@ export default function Home (){
 
     const getData = async () => {
         try {
-            const response = await fetch('http://' + Globals.API_REGISTER + ':8000/api/events', {
+            const response = await fetch(Globals.API_REGISTER + ':8000/api/events', {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
