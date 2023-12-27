@@ -48,7 +48,7 @@ jobs:
           context: ./server
           file: ./server/Dockerfile
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/server:${{ github.sha }}
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/server:latest
 
       - name: Build and push client
         uses: docker/build-push-action@v5
@@ -56,13 +56,7 @@ jobs:
           context: ./client
           file: ./client/Dockerfile
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/client:${{ github.sha }}
-      
-        
-      - name: Update Deployment Image Tags
-        run: |
-            chmod +x ./scripts/update_image_tag.sh
-            ./scripts/update_image_tag.sh ${{ github.sha }}
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/client:latest
 
   test_ubuntu:
     runs-on: ubuntu-latest
