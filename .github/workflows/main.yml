@@ -48,15 +48,15 @@ jobs:
           context: ./server
           file: ./server/Dockerfile
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/server:latest
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/server:3c4f4c08b8ba505adcb3c3e8b9ed739a46b00c48
 
       - name: Build and push client
         uses: docker/build-push-action@v5
-        with:
+        with: 
           context: ./client
           file: ./client/Dockerfile
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/client:latest
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/client:3c4f4c08b8ba505adcb3c3e8b9ed739a46b00c48
 
   test_ubuntu:
     runs-on: ubuntu-latest
