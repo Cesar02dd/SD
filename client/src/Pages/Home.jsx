@@ -14,7 +14,7 @@ export default function Home (){
 
     const getData = async () => {
         try {
-            const response = await fetch('http://hello:8000/api/events', {
+            const response = await fetch('http://autotest:8000/api/events', {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
