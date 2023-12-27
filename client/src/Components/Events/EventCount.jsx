@@ -9,11 +9,10 @@ const EventCount = ({state}) => {
     const [count, setCount] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
-    const apiUrl = process.env.SERVER_URL;
     useEffect(() => {
         const fetchApi = async () => {
             try {
-                const responseCount = await fetch(`${apiUrl}/api/event/${data.count}/count`, {
+                const responseCount = await fetch('http://server:8000/api/event/'+data.count+'/count', {
                     method: 'GET',
                     headers: {
                         'Content-Type': 'application/json',

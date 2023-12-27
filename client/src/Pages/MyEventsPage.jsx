@@ -12,11 +12,10 @@ const MyEventsPage = () => {
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(true);
     console.log(userData.email);
-    const apiUrl = process.env.SERVER_URL;
 
     const getData = async () => {
         try {
-            const response = await fetch(`${apiUrl}/api/user/${userData.email}/registeredEvents`, {
+            const response = await fetch('http://server:8000/api/user/' + userData.email + '/registeredEvents', {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',

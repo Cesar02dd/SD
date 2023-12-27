@@ -7,16 +7,14 @@ import "./Home.css";
 import {useEffect, useState} from "react";
 import Spinner from 'react-bootstrap/Spinner';
 
-
 export default function Home (){
 
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(true);
-    const apiUrl = process.env.SERVER_URL;
 
     const getData = async () => {
         try {
-            const response = await fetch(`${apiUrl}/api/events`, {
+            const response = await fetch('http://server:8000/api/events', {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',

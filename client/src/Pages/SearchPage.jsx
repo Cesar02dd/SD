@@ -12,11 +12,10 @@ const SearchPage = () => {
 
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(true);
-    const apiUrl = process.env.SERVER_URL;
 
     const getData = async () => {
         try {
-            const response = await fetch(`${apiUrl}/api/filter?name=${formData.name}&date=${formData.date}&place=${formData.place}`, {
+            const response = await fetch('http://server:8000/api/filter?name=' + formData.name + '&date=' + formData.date + '&place=' + formData.place, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
