@@ -27,9 +27,9 @@ update_file() {
     fi
 }
 
-update_file $DEPLOYMENT_SERVER_FILE "user/server:.*" "user/server:$COMMIT_HASH" $OS
-update_file $DEPLOYMENT_CLIENT_FILE "user/client:.*" "user/client:$COMMIT_HASH" $OS
-update_file $DEPLOYMENT_MYSQL_FILE "user/mysql:.*" "user/mysql:$COMMIT_HASH" $OS
+update_file $DEPLOYMENT_SERVER_FILE "cesar02dd/server:.*" "cesar02dd/server:$COMMIT_HASH" $OS
+update_file $DEPLOYMENT_CLIENT_FILE "cesar02dd/client:.*" "cesar02dd/client:$COMMIT_HASH" $OS
+update_file $DEPLOYMENT_MYSQL_FILE "cesar02dd/mysql:.*" "cesar02dd/mysql:$COMMIT_HASH" $OS
 update_file $GITHUB_ACTIONS_FILE "\${{\ secrets.DOCKERHUB_USERNAME }}/server:.*" "\${{\ secrets.DOCKERHUB_USERNAME }}/server:$COMMIT_HASH" $OS
 update_file $GITHUB_ACTIONS_FILE "\${{\ secrets.DOCKERHUB_USERNAME }}/client:.*" "\${{\ secrets.DOCKERHUB_USERNAME }}/client:$COMMIT_HASH" $OS
 update_file $GITHUB_ACTIONS_FILE "\${{\ secrets.DOCKERHUB_USERNAME }}/mysql:.*" "\${{\ secrets.DOCKERHUB_USERNAME }}/mysql:$COMMIT_HASH" $OS
