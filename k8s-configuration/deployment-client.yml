@@ -6,7 +6,7 @@ metadata:
   labels:
     app: client
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: client
@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: client
-          image: cesar02dd/client:d989785d1ff05a693cd4208155bb355fdf7e2213
+          image: cesar02dd/client:87882ba2bc79328bc2ba214ed91fab917de1453a
           ports:
             - containerPort: 5173
           env:

@@ -6,7 +6,7 @@ metadata:
   labels:
     app: server
 spec:
-  replicas: 1 
+  replicas: 2
   selector:
     matchLabels:
       app: server
@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: server
-          image: cesar02dd/server:d989785d1ff05a693cd4208155bb355fdf7e2213
+          image: cesar02dd/server:87882ba2bc79328bc2ba214ed91fab917de1453a
           ports:
             - containerPort: 8000
           resources:
