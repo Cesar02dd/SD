@@ -17,6 +17,13 @@ spec:
     spec:
       containers:
         - name: server
-          image: cesar02dd/server:8c6a999944d5a80ed12d0835d0937e6c353f3d92
+          image: cesar02/server:6e6ff02abbe2ae21a658f56d7e4ce67e08887fe7
           ports:
             - containerPort: 8000
+          resources:
+            requests:
+              cpu: "10m"  
+              memory: "64Mi"  
+            limits:
+              cpu: "50m"  
+              memory: "128Mi"  

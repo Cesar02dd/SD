@@ -16,18 +16,25 @@ spec:
         app: mysql
     spec:
       containers:
-      - name: mysql
-        image: cesar02dd/mysql:latest
-        ports: 
-          - containerPort: 3306
-        volumeMounts:
-          - name: storage
-            mountPath: /var/lib/mysql
-        env:
-          - name: MYSQL_ALLOW_EMPTY_PASSWORD
-            value: "yes"
-          - name: MYSQL_DATABASE
-            value: "sd"
+        - name: mysql
+          image: cesar02dd/mysql:6e6ff02abbe2ae21a658f56d7e4ce67e08887fe7
+          ports:
+            - containerPort: 3306
+          volumeMounts:
+            - name: storage
+              mountPath: /var/lib/mysql
+          env:
+            - name: MYSQL_ALLOW_EMPTY_PASSWORD
+              value: "yes"
+            - name: MYSQL_DATABASE
+              value: "sd"
+          resources:
+            requests:
+              cpu: "10m"  
+              memory: "200Mi"  
+            limits:
+              cpu: "200m"  
+              memory: "300Mi"  
       volumes:
         - name: storage
           persistentVolumeClaim:
