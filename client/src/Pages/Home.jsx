@@ -6,7 +6,6 @@ import Col from 'react-bootstrap/Col';
 import "./Home.css";
 import {useEffect, useState} from "react";
 import Spinner from 'react-bootstrap/Spinner';
-import Globals from '../../globals';
 
 export default function Home (){
 
