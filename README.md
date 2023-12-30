@@ -13,7 +13,7 @@ Instalar composer -> https://getcomposer.org/Composer-Setup.exe
 -----------------------------
 
 Para correr a aplicação executar os seguintes comandos:<br>
-
+Na pasta Server:
 1. npm install 
 2. composer install
 3. Dar click em start no apache e MySQL dentro XAMPP Control Panel
@@ -26,7 +26,7 @@ Para correr a aplicação executar os seguintes comandos:<br>
 8. php artisan db:seed
 9. php artisan serve (para executar o backend)
 
-Na pasta "react": <br>
+Na pasta client: <br>
 
 9. aceder à pasta react fazendo cd react
 10. npm install
