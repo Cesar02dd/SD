@@ -48,7 +48,7 @@ jobs:
           context: ./server
           file: ./server/Dockerfile
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/server:53ebaa8938725c8a4c69dec2ea89cd7f7f93c422
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/server:0c46bddfe14f9101b3c6d2638d670f6c43d6b3f9
 
       - name: Build and push client
         uses: docker/build-push-action@v5
@@ -56,7 +56,7 @@ jobs:
           context: ./client
           file: ./client/Dockerfile
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/client:53ebaa8938725c8a4c69dec2ea89cd7f7f93c422
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/client:0c46bddfe14f9101b3c6d2638d670f6c43d6b3f9
 
       #- name: Build and push mysql
        # uses: docker/build-push-action@v5

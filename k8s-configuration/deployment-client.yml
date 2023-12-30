@@ -22,12 +22,12 @@ spec:
     spec:
       containers:
         - name: client
-          image: cesar02dd/client:53ebaa8938725c8a4c69dec2ea89cd7f7f93c422
+          image: cesar02dd/client:0c46bddfe14f9101b3c6d2638d670f6c43d6b3f9
           ports:
             - containerPort: 5173
-          env:
-            - name: API_REGISTER_ENDPOINT
-              value: "http://server"
+          #env:
+          #  - name: API_REGISTER_ENDPOINT
+          #    value: "http://server"
           resources:
             requests:
               cpu: "10m"
