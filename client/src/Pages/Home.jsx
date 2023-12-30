@@ -7,6 +7,7 @@ import "./Home.css";
 import {useEffect, useState} from "react";
 import Spinner from 'react-bootstrap/Spinner';
 
+
 export default function Home (){
 
     const [data, setData] = useState([]);
