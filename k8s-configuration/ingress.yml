@@ -6,7 +6,7 @@ metadata:
     name: ingress-server
 spec:
   rules:
-    - host: servergrupo2sd.com
+    - host: server-register.com
       http:
         paths:
           - path: /register
@@ -15,4 +15,4 @@ spec:
               service:
                 name: server
                 port: 
-                  number: 8000
+                  number: 32175
