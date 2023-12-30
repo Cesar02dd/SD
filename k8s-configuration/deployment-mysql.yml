@@ -6,7 +6,12 @@ metadata:
   labels:
     app: mysql
 spec:
-  replicas: 1
+  replicas: 2
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1
   selector:
     matchLabels:
       app: mysql
@@ -17,7 +22,7 @@ spec:
     spec:
       containers:
         - name: mysql
-          image: cesar02dd/mysql:2750506b61a4e0131d2b838374829f534b3dfde6
+          image: cesar02dd/mysql:latest
           ports:
             - containerPort: 3306
           volumeMounts:
