@@ -1,0 +1,18 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-server
+  labels:
+    name: ingress-server
+spec:
+  rules:
+    - host: servergrupo2sd.com
+      http:
+        paths:
+          - path: /register
+            pathType: Prefix
+            backend:
+              service:
+                name: server
+                port: 
+                  number: 8000
