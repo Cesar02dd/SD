@@ -6,12 +6,12 @@ metadata:
   labels:
     app: server
 spec:
-  replicas: 2
-  strategy:
-    type: RollingUpdate
-    rollingUpdate:
-      maxUnavailable: 1
-      maxSurge: 1
+  replicas: 1
+  #strategy:
+  #  type: RollingUpdate
+  #  rollingUpdate:
+  #    maxUnavailable: 1
+  #    maxSurge: 1
   selector:
     matchLabels:
       app: server
@@ -22,7 +22,7 @@ spec:
     spec:
       containers:
         - name: server
-          image: cesar02dd/server:3b4e71ae6c5f5172ae5fb417443b9a61d0d490dd
+          image: cesar02dd/server:7ac15b5c25e0eef2fed67fbc3b086efb99a894dc
           ports:
             - containerPort: 8000
           resources:
