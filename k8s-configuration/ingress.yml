@@ -15,4 +15,4 @@ spec:
               service:
                 name: server
                 port: 
-                  number: 32175
+                  number: 8000
