@@ -9,7 +9,7 @@ spec:
     - host: server-register.com
       http:
         paths:
-          - path: /register
+          - path: /
             pathType: Prefix
             backend:
               service:
