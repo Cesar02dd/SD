@@ -20,7 +20,7 @@ const EventPage = () => {
     useEffect(() => {
         const fetchApis = async () => {
             try {
-                const responseEvents = await fetch('http://server:8000/api/events', {
+                const responseEvents = await fetch('/register/api/events', {
                     method: 'GET',
                     headers: {
                         'Content-Type': 'application/json',
@@ -29,7 +29,7 @@ const EventPage = () => {
                 const resultEvents = await responseEvents.json();
                 setEvents(resultEvents);
 
-                const responseCount = await fetch('http://server:8000/api/event/'+pageId.event+'/count', {
+                const responseCount = await fetch('/register/api/event/'+pageId.event+'/count', {
                     method: 'GET',
                     headers: {
                         'Content-Type': 'application/json',
@@ -39,7 +39,7 @@ const EventPage = () => {
                 const resultCount = await responseCount.json();
                 setCount(resultCount);
 
-                const responsePaid = await fetch('http://server:8000/api/event/'+pageId.event+'/paidUsers', {
+                const responsePaid = await fetch('/register/api/event/'+pageId.event+'/paidUsers', {
                     method: 'GET',
                     headers: {
                         'Content-Type': 'application/json',

@@ -12,7 +12,7 @@ const EventCount = ({state}) => {
     useEffect(() => {
         const fetchApi = async () => {
             try {
-                const responseCount = await fetch('http://server:8000/api/event/'+data.count+'/count', {
+                const responseCount = await fetch('/register/api/event/'+data.count+'/count', {
                     method: 'GET',
                     headers: {
                         'Content-Type': 'application/json',
