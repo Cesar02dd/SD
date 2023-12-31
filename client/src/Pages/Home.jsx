@@ -14,11 +14,11 @@ export default function Home (){
 
     const getData = async () => {
         try {
-            const response = await fetch('/register/api/data', {
-                method: 'GET',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
+            const response = await fetch('/register/api/data')
+            .then(response => response.text())
+            .then(data => {
+                console.log('Response:', data);
+                return JSON.parse(data);
             });
 
             if (!response.ok) {
