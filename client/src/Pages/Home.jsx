@@ -14,7 +14,7 @@ export default function Home (){
 
     const getData = async () => {
         try {
-            const response = await fetch('/register/api/events')
+            const response = await fetch('http://10.2.15.164:8000/api/events')
             .then(response => response.text())
             .then(data => {
                 console.log('Response:', data);

@@ -12,12 +12,7 @@ export default defineConfig({
     '/register': {
       target: 'http://server:8000',
       changeOrigin: true,
-      rewrite: (path) => {
-        const newPath = path.replace(/^\/register/, '');
-        const fullURL = `http://server:8000${newPath}`;
-        console.log('Proxying to:', fullURL);
-        return newPath;
-      },
+      rewrite: (path) => path.replace(/^\/register/, ''),
     },
   },
 })
