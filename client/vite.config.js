@@ -10,7 +10,7 @@ export default defineConfig({
   },
   proxy: {
     '/register': {
-      target: 'http://server:8000',
+      target: 'http://10.2.15.164:8000',
       changeOrigin: true,
       rewrite: (path) => {
         const newPath = path.replace(/^\/register/, '');
