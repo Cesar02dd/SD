@@ -14,7 +14,7 @@ export default function Home (){
 
     const getData = async () => {
         try {
-            const response = await fetch('/register/api/data')
+            const response = await fetch('/register/api/events')
             .then(response => response.text())
             .then(data => {
                 console.log('Response:', data);
