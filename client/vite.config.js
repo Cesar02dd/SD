@@ -14,7 +14,7 @@ export default defineConfig({
         rewrite: (path) => path.replace(/^\/register/, ''),
       },
       '/event': {
-        target: 'http://10.2.15.143:30150',
+        target: 'http://webapp-service:3000',
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/event/, ''),
       },
