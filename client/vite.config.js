@@ -13,6 +13,11 @@ export default defineConfig({
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/register/, ''),
       },
+      '/event': {
+        target: 'http://webapp-service:3000',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/event/, ''),
+      },
     },
   },
 })
