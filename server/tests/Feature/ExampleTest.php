@@ -124,7 +124,7 @@ class ExampleTest extends TestCase
 
     public function test_register(): void
     {
-        $response = $this->withHeader('Authorization', 'Bearer ' . $this->accessToken)->post("/api/register", ['email' => 'test@mail.com', 'event_id' => '4']);
+        $response = $this->withHeader('Authorization', 'Bearer ' . $this->accessToken)->post("/api/register", ['email' => 'test@gmail.com', 'event_id' => '2']);
 
         $response->assertStatus(200);
     }
