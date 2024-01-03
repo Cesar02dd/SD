@@ -70,7 +70,7 @@ const EventPage = () => {
                     {loading ? (
                         <p>Loading...</p>
                     ) : (
-                        <><Col className='titleCol'><>{events.map(event => event.Id == pageId.event ? (<h2 key={event.Id}>{event.Name}</h2>):null)}</>
+                        <><Col className='titleCol'><>{events && events.map(event => event.Id == pageId.event ? (<h2 key={event.Id}>{event.Name}</h2>):null)}</>
                         <h2>Número total de participantes: {JSON.stringify(count, null, 2)}</h2>
                         <EventDetail state={{ paid: paid }} /></Col></>
                     )}
