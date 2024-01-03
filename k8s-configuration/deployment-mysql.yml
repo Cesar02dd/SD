@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: mysql
-          image: cesar02dd/mysql:aadb87e448f6c8c1554d3e4ebd37186d3d13529b
+          image: cesar02dd/mysql:3ccc08a47516caeb427a90cc8b498f81356fbb75
           ports:
             - containerPort: 3306
           volumeMounts:
