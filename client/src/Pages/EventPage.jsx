@@ -36,9 +36,16 @@ const EventPage = () => {
                         'Authorization': 'Bearer ' + Globals.token,
                     },
                 });
-                const resultCount = await responseCount.json();
-                setCount(resultCount);
 
+                let resultCount;
+                if (!responseCount.ok) {
+                    console.error(`Error: ${responseCount.status}`);
+                    resultCount = null;
+                } else {
+                    resultCount = await responseCount.json();
+                    setCount(resultCount);
+                }
+                
                 /*const responsePaid = await fetch('/register/api/event/'+pageId.event+'/paidUsers', {
                     method: 'GET',
                     headers: {
