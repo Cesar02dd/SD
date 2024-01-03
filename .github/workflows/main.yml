@@ -48,7 +48,7 @@ jobs:
           context: ./server
           file: ./server/Dockerfile
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/server:6aeba085e077a37aa24501021d3c318bb8ccb98a
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/server:178de85d9d76717fff3ac901fcc06905292a7913
 
       - name: Build and push client
         uses: docker/build-push-action@v5
@@ -56,7 +56,7 @@ jobs:
           context: ./client
           file: ./client/Dockerfile
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/client:6aeba085e077a37aa24501021d3c318bb8ccb98a
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/client:178de85d9d76717fff3ac901fcc06905292a7913
 
       - name: Build and push mysql
         uses: docker/build-push-action@v5
@@ -64,7 +64,7 @@ jobs:
           context: ./mysql
           file: ./mysql/Dockerfile
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/mysql:6aeba085e077a37aa24501021d3c318bb8ccb98a
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/mysql:178de85d9d76717fff3ac901fcc06905292a7913
 
   test_ubuntu:
     runs-on: ubuntu-latest
