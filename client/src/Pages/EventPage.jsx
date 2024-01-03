@@ -7,6 +7,7 @@ import "./Home.css";
 import Globals from '../../globals';
 import { useParams } from 'react-router-dom';
 
+
 const EventPage = () => {
 
     let pageId  = useParams();
