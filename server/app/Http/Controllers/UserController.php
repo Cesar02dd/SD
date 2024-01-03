@@ -28,6 +28,7 @@ class UserController extends Controller
             /*$newRegister = new Events;
             $newRegister->IdEvents = $event_id;   
             $newRegister->save();*/
+            
             $test = array('IdEvents' => $event_id);
             Events::insert($test);
         }

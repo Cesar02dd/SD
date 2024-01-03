@@ -49,7 +49,7 @@ jobs:
       #    context: ./server
       #    file: ./server/Dockerfile
       #    push: true
-      #    tags: ${{ secrets.DOCKERHUB_USERNAME }}/server:6aa7785023aca6646fa1849f752ff0ec54491e15
+      #    tags: ${{ secrets.DOCKERHUB_USERNAME }}/server:3740a0749044c317dfa794a5fc4d01bdd1ce7401
 =======
       - name: Build and push server
         uses: docker/build-push-action@v5
@@ -57,7 +57,7 @@ jobs:
           context: ./server
           file: ./server/Dockerfile
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/server:6aa7785023aca6646fa1849f752ff0ec54491e15
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/server:3740a0749044c317dfa794a5fc4d01bdd1ce7401
 >>>>>>> 1faf876eede47557a78ec01ecf832f6996f53e62
 
       - name: Build and push client
@@ -67,9 +67,9 @@ jobs:
           file: ./client/Dockerfile
           push: true
 <<<<<<< HEAD
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/client:6aa7785023aca6646fa1849f752ff0ec54491e15
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/client:3740a0749044c317dfa794a5fc4d01bdd1ce7401
 =======
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/client:6aa7785023aca6646fa1849f752ff0ec54491e15
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/client:3740a0749044c317dfa794a5fc4d01bdd1ce7401
 >>>>>>> 1faf876eede47557a78ec01ecf832f6996f53e62
 
       - name: Build and push mysql
@@ -78,7 +78,7 @@ jobs:
           context: ./mysql
           file: ./mysql/Dockerfile
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/mysql:6aa7785023aca6646fa1849f752ff0ec54491e15
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/mysql:3740a0749044c317dfa794a5fc4d01bdd1ce7401
 
   test_ubuntu:
     runs-on: ubuntu-latest
