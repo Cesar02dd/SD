@@ -25,10 +25,10 @@ export default function Home (){
                 throw new Error('Error');
             }
 
-            //const data = await response.json();
-            //setData(data);
-            const data1 = await response.text();
-            console.log('Server Toni: ' + data1);
+            const data = await response.json();
+            setData(data);
+            //const data1 = await response.text();
+            console.log('Server Toni: ' + data);
 
         } catch (error) {
             console.error('Error:', error);
