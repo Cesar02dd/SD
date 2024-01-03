@@ -20,7 +20,7 @@ const EventPage = () => {
     useEffect(() => {
         const fetchApis = async () => {
             try {
-                const responseEvents = await fetch('/register/api/events', {
+                const responseEvents = await fetch('/event/events', {
                     method: 'GET',
                     headers: {
                         'Content-Type': 'application/json',
@@ -70,7 +70,7 @@ const EventPage = () => {
                     {loading ? (
                         <p>Loading...</p>
                     ) : (
-                        <><Col className='titleCol'><>{events.map(event => event.id == pageId.event ? (<h2 key={event.id}>{event.name}</h2>):null)}</>
+                        <><Col className='titleCol'><>{events.map(event => event.Id == pageId.event ? (<h2 key={event.Id}>{event.Name}</h2>):null)}</>
                         <h2>Número total de participantes: {JSON.stringify(count, null, 2)}</h2>
                         <EventDetail state={{ paid: paid }} /></Col></>
                     )}

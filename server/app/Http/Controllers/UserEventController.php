@@ -22,7 +22,7 @@ class UserEventController extends Controller
     }
 
     public function getAssistants($id){
-        $event = Events::find($id);
+        $event = Events::where('IdEvents', $id)->first();
 
         if (!$event) {
             return response()->json(['message' => 'Event not found'], 404);
@@ -33,7 +33,7 @@ class UserEventController extends Controller
     }
 
     public function getTotalAssistants($id){
-        $event = Events::find($id);
+        $event = Events::where('IdEvents', $id)->first();
 
         if (!$event) {
             return response()->json(['message' => 'Event not found'], 404);
@@ -44,7 +44,7 @@ class UserEventController extends Controller
     }
 
     public function getPaidAssistants($id){
-        $event = Events::find($id);
+        $event = Events::where('IdEvents', $id)->first();
 
         if (!$event) {
             return response()->json(['message' => 'Event not found'], 404);
