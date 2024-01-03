@@ -22,13 +22,13 @@ class UserController extends Controller
         $event_id = $request->input('event_id');
 
         $user = User::where('email', $email)->first()->id;
-        $event = Events::where('IdEvents', $event_id)->id;
+        $event = Events::where('IdEvents', $event_id)->first()->id;
 
         if (!$event){
             /*$newRegister = new Events;
             $newRegister->IdEvents = $event_id;   
             $newRegister->save();*/
-            
+
             $test = array('IdEvents' => $event_id);
             Events::insert($test);
         }
