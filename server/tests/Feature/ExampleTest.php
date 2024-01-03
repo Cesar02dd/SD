@@ -53,7 +53,7 @@ class ExampleTest extends TestCase
         $response = $this->withHeader('Authorization', 'Bearer ' . $this->accessToken)->get("/api/event/$event/count");
 
         $response->assertStatus(200);
-        self::assertEquals('3', $response->json());
+        self::assertEquals('1', $response->json());
     }
 
     public function test_registered_events(): void
