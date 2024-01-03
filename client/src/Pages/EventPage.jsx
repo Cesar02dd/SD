@@ -44,6 +44,7 @@ const EventPage = () => {
                 } else {
                     resultCount = await responseCount.json();
                     setCount(resultCount);
+                    console.log("Testeeeeeeeeee: " + resultCount);
                 }
                 
                 /*const responsePaid = await fetch('/register/api/event/'+pageId.event+'/paidUsers', {

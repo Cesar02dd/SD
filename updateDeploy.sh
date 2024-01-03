@@ -27,11 +27,11 @@ update_file() {
     fi
 }
 
-update_file $DEPLOYMENT_SERVER_FILE "genesiisdn/server:.*" "genesiisdn/server:$COMMIT_HASH" $OS
+#update_file $DEPLOYMENT_SERVER_FILE "genesiisdn/server:.*" "genesiisdn/server:$COMMIT_HASH" $OS
 update_file $DEPLOYMENT_CLIENT_FILE "genesiisdn/client:.*" "genesiisdn/client:$COMMIT_HASH" $OS
-update_file $DEPLOYMENT_MYSQL_FILE "genesiisdn/mysql:.*" "genesiisdn/mysql:$COMMIT_HASH" $OS
-update_file $GITHUB_ACTIONS_FILE "\${{\ secrets.DOCKERHUB_USERNAME }}/server:.*" "\${{\ secrets.DOCKERHUB_USERNAME }}/server:$COMMIT_HASH" $OS
+#update_file $DEPLOYMENT_MYSQL_FILE "genesiisdn/mysql:.*" "genesiisdn/mysql:$COMMIT_HASH" $OS
+#update_file $GITHUB_ACTIONS_FILE "\${{\ secrets.DOCKERHUB_USERNAME }}/server:.*" "\${{\ secrets.DOCKERHUB_USERNAME }}/server:$COMMIT_HASH" $OS
 update_file $GITHUB_ACTIONS_FILE "\${{\ secrets.DOCKERHUB_USERNAME }}/client:.*" "\${{\ secrets.DOCKERHUB_USERNAME }}/client:$COMMIT_HASH" $OS
-update_file $GITHUB_ACTIONS_FILE "\${{\ secrets.DOCKERHUB_USERNAME }}/mysql:.*" "\${{\ secrets.DOCKERHUB_USERNAME }}/mysql:$COMMIT_HASH" $OS
+#update_file $GITHUB_ACTIONS_FILE "\${{\ secrets.DOCKERHUB_USERNAME }}/mysql:.*" "\${{\ secrets.DOCKERHUB_USERNAME }}/mysql:$COMMIT_HASH" $OS
 
 echo "Files updated with hash: $COMMIT_HASH"
