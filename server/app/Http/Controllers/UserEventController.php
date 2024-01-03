@@ -36,7 +36,7 @@ class UserEventController extends Controller
         $event = Events::where('IdEvents', $id)->first();
 
         if (!$event) {
-            return response()->json(['message' => 'Event not found'], 404);
+            return response()->json(0);
         }
         $count = $event->assistants()->count();
 
@@ -47,7 +47,7 @@ class UserEventController extends Controller
         $event = Events::where('IdEvents', $id)->first();
 
         if (!$event) {
-            return response()->json(['message' => 'Event not found'], 404);
+            return response()->json(0);
         }
         $data = $event->assistants()->select('users.name', 'users.email', 'user_event_registration.registered_date', 'user_event_registration.paid_date')->where('user_event_registration.paid_date', '!=', null)->get();
 
