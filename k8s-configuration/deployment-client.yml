@@ -22,7 +22,7 @@ spec:
     spec:
       containers:
         - name: client
-          image: ehxa/client:6d3531eb48b0988cf13421982efa373aa0099006
+          image: ehxa/client:aa2a0f404167d0461eb45bfce05365d5254b1f39
           ports:
             - containerPort: 5173
           #env:
