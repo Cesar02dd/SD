@@ -22,7 +22,7 @@ spec:
     spec:
       containers:
         - name: client
-          image: genesiisdn/client:333dac25e07fa8b866131d4d44f8a8fb4bf9dc74
+          image: cesar02dd/client:6a1dc202a4b5266e0fb5873b53905f100fb1625d
           ports:
             - containerPort: 5173
           #env:

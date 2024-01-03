@@ -38,7 +38,7 @@ const EventPage = () => {
                 });
 
                 let resultCount;
-                if (!responseCount.ok) {
+                if (responseCount.status !== 404) {
                     console.error(`Error: ${responseCount.status}`);
                     resultCount = null;
                 } else {

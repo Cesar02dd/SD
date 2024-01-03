@@ -49,8 +49,9 @@ class ExampleTest extends TestCase
 
     public function test_total_assistants(): void
     {
-        $event = 2;
+        $event = 10;
         $response = $this->withHeader('Authorization', 'Bearer ' . $this->accessToken)->get("/api/event/$event/count");
+        print($response->json());
 
         $response->assertStatus(200);
         self::assertEquals('1', $response->json());
