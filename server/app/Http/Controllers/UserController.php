@@ -25,9 +25,11 @@ class UserController extends Controller
         $event = Events::where('IdEvents', $event_id)->id;
 
         if (!$event){
-            $newRegister = new Events;
+            /*$newRegister = new Events;
             $newRegister->IdEvents = $event_id;   
-            $newRegister->save();
+            $newRegister->save();*/
+            $test = array('IdEvents' => $event_id);
+            Events::insert($test);
         }
 
         if (!$user) return response()->json(['message' => 'Something went wrong'], 404);
