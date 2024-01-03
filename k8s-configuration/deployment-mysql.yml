@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: mysql
-          image: genesiisdn/mysql:8fac4befa21b6f9ae7984f68205b32035543897f
+          image: genesiisdn/mysql:52cde00d976cc507fd92433d9ca82b1499208cc7
           ports:
             - containerPort: 3306
           volumeMounts:
