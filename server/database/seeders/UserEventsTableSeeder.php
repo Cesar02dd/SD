@@ -13,7 +13,7 @@ class UserEventsTableSeeder extends Seeder
      */
     public function run(): void
     {
-        $users_events = array(
+        /*$users_events = array(
             array('id' => '1','user_id' => '1','event_id' => '1','registered_date' => now(),'paid_date' => now(),'created_at' => '2018-01-04 15:18:13','updated_at' => '2018-01-04 15:18:13'),
             array('id' => '2','user_id' => '1','event_id' => '2','registered_date' => now(),'paid_date' => now(),'created_at' => '2018-01-04 15:18:13','updated_at' => '2018-01-04 15:18:13'),
             array('id' => '3','user_id' => '1','event_id' => '3','registered_date' => now(),'paid_date' => now(),'created_at' => '2018-01-04 15:18:13','updated_at' => '2018-01-04 15:18:13'),
@@ -23,6 +23,6 @@ class UserEventsTableSeeder extends Seeder
             array('id' => '7','user_id' => '4','event_id' => '4','registered_date' => now(),'paid_date' => now(),'created_at' => '2018-01-04 15:18:13','updated_at' => '2018-01-04 15:18:13'),
         );
 
-        User_Event_Registration::insert($users_events);
+        User_Event_Registration::insert($users_events);*/
     }
 }
