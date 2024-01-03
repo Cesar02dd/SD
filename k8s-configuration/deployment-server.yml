@@ -22,7 +22,7 @@ spec:
     spec:
       containers:
         - name: server
-          image: ehxa/server:aa2a0f404167d0461eb45bfce05365d5254b1f39
+          image: ehxa/server:d20ec2f7489d328601f86b0bdf977d2b73d1f37c
           ports:
             - containerPort: 8000
           resources:
