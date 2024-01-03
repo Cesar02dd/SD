@@ -22,7 +22,7 @@ spec:
     spec:
       containers:
         - name: server
-          image: cesar02dd/server:fc1390298c20a339b58bed229a6637bca360f639
+          image: cesar02dd/server:82a71fb432f627adf49354d387a106744fc97bbc
           ports:
             - containerPort: 8000
           resources:
@@ -30,6 +30,6 @@ spec:
               cpu: "10m"  
               memory: "64Mi"  
             limits:
-              cpu: "50m"  
-              memory: "128Mi"  
+              cpu: "300m"  
+              memory: "512Mi"  
           
