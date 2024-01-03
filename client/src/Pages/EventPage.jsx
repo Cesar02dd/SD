@@ -71,7 +71,7 @@ const EventPage = () => {
                         <p>Loading...</p>
                     ) : (
                         <><Col className='titleCol'><>{events && events.map(event => event.Id == pageId.event ? (<h2 key={event.Id}>{event.Name}</h2>):null)}</>
-                        <h2>Número total de participantes: {count !== null ? JSON.stringify(count, null, 2) : '0'}</h2>
+                        <h2>Número total de participantes: {count !== null ? JSON.stringify(count, null, 2) : JSON.stringify('0', null, 2)}</h2>
                         {/*<EventDetail state={{ paid: paid }} />*/}</Col></>
                     )}
             </Row>
