@@ -22,7 +22,7 @@ spec:
     spec:
       containers:
         - name: server
-          image: cesar02dd/server:52cde00d976cc507fd92433d9ca82b1499208cc7
+          image: cesar02dd/server:8070954ba6c2b22e4ab2338e4e17fca30dc40565
           ports:
             - containerPort: 8000
           resources:

@@ -42,13 +42,13 @@ jobs:
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
 
-      # - name: Build and push server
-      #   uses: docker/build-push-action@v5
-      #   with:
-      #      context: ./server
-      #      file: ./server/Dockerfile
-      #      push: true
-      #      tags: ${{ secrets.DOCKERHUB_USERNAME }}/server:52cde00d976cc507fd92433d9ca82b1499208cc7
+      - name: Build and push server
+        uses: docker/build-push-action@v5
+        with:
+           context: ./server
+           file: ./server/Dockerfile
+           push: true
+           tags: ${{ secrets.DOCKERHUB_USERNAME }}/server:8070954ba6c2b22e4ab2338e4e17fca30dc40565
 
       - name: Build and push client
         uses: docker/build-push-action@v5
@@ -56,15 +56,15 @@ jobs:
           context: ./client
           file: ./client/Dockerfile
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/client:6a1dc202a4b5266e0fb5873b53905f100fb1625d
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/client:8070954ba6c2b22e4ab2338e4e17fca30dc40565
 
-      # - name: Build and push mysql
-      #   uses: docker/build-push-action@v5
-      #   with: 
-      #     context: ./mysql
-      #     file: ./mysql/Dockerfile
-      #     push: true
-      #     tags: ${{ secrets.DOCKERHUB_USERNAME }}/mysql:52cde00d976cc507fd92433d9ca82b1499208cc7
+      - name: Build and push mysql
+        uses: docker/build-push-action@v5
+        with: 
+          context: ./mysql
+          file: ./mysql/Dockerfile
+          push: true
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/mysql:8070954ba6c2b22e4ab2338e4e17fca30dc40565
 
   test_ubuntu:
     runs-on: ubuntu-latest
