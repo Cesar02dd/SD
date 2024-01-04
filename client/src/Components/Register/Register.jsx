@@ -32,7 +32,7 @@ const Register = () => {
 
 
     const [payment, setPayment] = useState({
-      amount: event.Price * 100,
+      amount: parseFloat(event.Price) * 100,
       information: '',
       expirationDate: formattedDate,
     });
