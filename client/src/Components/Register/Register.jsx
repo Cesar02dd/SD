@@ -119,7 +119,8 @@ const Register = () => {
             },
             body: JSON.stringify(registerData),
         });
-        setShowModal(true); 
+
+        navigate('/');
     }
 
     const handlePaymentModal = (show) => {
@@ -148,7 +149,7 @@ const Register = () => {
                 </Card.Body>
         </Card>
 
-        <Modal show={showModal} onHide={() => handlePaymentModal(false)}>
+        <Modal show={showModal} onHide={() => handlePaymentModal(false)} size="lg">
           <Modal.Header closeButton>
             <Modal.Title className='title_register'>Please first pay your event</Modal.Title>
           </Modal.Header>
@@ -156,7 +157,7 @@ const Register = () => {
             <Form onSubmit={(e) => { e.preventDefault(); handlePaymentModal(false); handleRegister()}}>
               <Form.Group as={Row} className="mb-3">
                 <Form.Label column sm="2">Amount</Form.Label>
-                <Col sm="10"><Form.Control plaintext readOnly className="inputs" name="amount" type="number" value={payment.amount} /></Col>
+                <Col sm="10"><Form.Control plaintext readOnly className="inputs" name="amount" type="number" value={event.Price} /></Col>
                 <Form.Label column sm="2">Information</Form.Label>
                 <Col sm="10"><Form.Control plaintext readOnly className="inputs" name="info" type="text" value={payment.information} /></Col>
                 <Form.Label column sm="2">Date</Form.Label>
