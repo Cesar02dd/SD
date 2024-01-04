@@ -13,12 +13,31 @@ const Register = () => {
 
     const location = useLocation();
     const navigate = useNavigate();
-    const eventId = location.state ? location.state.event : null;
+    const event = location.state ? location.state.event : null;
 
     const [registerData, setRegisterData] = useState({
         email: '',
         event_id: 0,
     })
+
+    const [login] = useState({
+      username: 'grupo2',
+      password: 'grupo2sd2023',
+    })
+
+    const currentDate = new Date();
+
+    // Format the date as "YYYY-MM-DD"
+    const formattedDate = `${currentDate.getFullYear()}-${String(currentDate.getMonth() + 1).padStart(2, '0')}-${String(currentDate.getDate()).padStart(2, '0')}`;
+
+
+    const [payment] = useState({
+      amount: event.Price,
+      information: 'Payment of ' + event.Name + 'from ' + registerData.email,
+      expirationDate: formattedDate,
+    })
+
+    console.log(payment);
 
     const handleInputChange = (e) => {
         const  {name, value} = e.target;
@@ -28,8 +47,24 @@ const Register = () => {
         });
     }
     const handleRegister = () => {
-        registerData.event_id = eventId;
+        registerData.event_id = event.Id;
         console.log(JSON.stringify(registerData));
+
+        fetch('/payment/api/login', {
+          method: 'POST',
+          headers: {
+              'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(login),
+        });
+
+        fetch('/payment/api/payments', {
+          method: 'POST',
+          headers: {
+              'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(payment),
+        });
 
         fetch('/register/api/register', {
             method: 'POST',
@@ -45,7 +80,7 @@ const Register = () => {
   return (
     <div className='container_register'>
       <Card className="text-center">
-            <Card.Header className='title_register'>Register in {eventId}</Card.Header>
+            <Card.Header className='title_register'>Register in {event.Name}</Card.Header>
                 <Card.Body>
                   <Form onSubmit={handleRegister}>
                     <Form.Group as={Row} className="mb-3" controlId="forEventLocation">

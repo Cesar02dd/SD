@@ -26,7 +26,7 @@ const Events = ({state}) => {
                             <Card.Img variant="left" src={dataImage} className='images' />
                             {event.Date}
                         </Card.Text>
-                        <Link to={"/register"} state={{event: event.Id}}>
+                        <Link to={"/register"} state={{event: event}}>
                             <Button className='search_button' variant="primary">Register</Button>
                         </Link>
                     </Card.Body>
