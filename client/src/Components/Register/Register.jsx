@@ -136,10 +136,10 @@ const Register = () => {
       <Card className="text-center">
             <Card.Header className='title_register'>Register in {event.Name}</Card.Header>
                 <Card.Body>
-                  <Form onSubmit={handlePaymentModal(true)}>
+                  <Form onSubmit={(e) => { e.preventDefault(); handlePaymentModal(true)}}>
                     <Form.Group as={Row} className="mb-3" controlId="forEventLocation">
                       <Form.Label column sm="2">Email</Form.Label>
-                      <Col sm="10"><Form.Control name="email" type="email" placeholder="email@gmail.com" value={registerData.email} onChange={handleInputChange}/></Col>
+                      <Col sm="10"><Form.Control name="email" type="email" placeholder="email@gmail.com" value={registerData.email} onChange={handleInputChange} required/></Col>
                     </Form.Group>
                       <Button type="submit" variant="primary" className='register_button'>
                           Register
