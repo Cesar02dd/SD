@@ -21,14 +21,23 @@ class UserController extends Controller
         $email = $request->input('email');
         $event_id = $request->input('event_id');
 
-        $user = User::where('email', $email)->first()->id;
-        $event = Events::find($event_id)->id;
+        $user = User::where('email', $email)->first();
+        $event = Events::where('IdEvents', $event_id)->first();
 
-        if (!$user or !$event) return response()->json(['message' => 'Something went wrong'], 404);
+        if (!$event){
+            $newRegister = new Events;
+            $newRegister->IdEvents = $event_id;
+            $newRegister->save();
 
-        $array = array('user_id' => $user,'event_id' => $event,'registered_date' => now());
-        $exists = User_Event_Registration::where('user_id', $user)
-            ->where('event_id', $event)
+            /*$test = array('IdEvents' => $event_id);
+            Events::insert($test);*/
+        }
+
+        if (!$user) return response()->json(['message' => 'Something went wrong'], 404);
+
+        $array = array('user_id' => $user->id,'event_id' => $event->id,'registered_date' => now());
+        $exists = User_Event_Registration::where('user_id', $user->id)
+            ->where('event_id', $event->id)
             ->exists();
 
         if ($exists){
@@ -36,6 +45,7 @@ class UserController extends Controller
         }
         User_Event_Registration::insert($array);
 
+        print('User registered');
         return response()->json(['message' => 'User registered']);
     }
 }

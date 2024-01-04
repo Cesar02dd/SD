@@ -6,13 +6,14 @@ import Globals from '../../../globals';
 const EventCount = ({state}) => {
 
     const data = state;
+    console.log("Num:  " + data.count);
     const [count, setCount] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     useEffect(() => {
         const fetchApi = async () => {
             try {
-                const responseCount = await fetch('http://server:8000/api/event/'+data.count+'/count', {
+                const responseCount = await fetch('/register/api/event/'+data.count+'/count', {
                     method: 'GET',
                     headers: {
                         'Content-Type': 'application/json',

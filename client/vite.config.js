@@ -7,5 +7,22 @@ export default defineConfig({
   server: {
     host: '0.0.0.0',
     port: 5173,
+    proxy: {
+      '/register': {
+        target: 'http://server:8000',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/register/, ''),
+      },
+      '/event': {
+        target: 'http://10.2.15.143:30150',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/event/, ''),
+      },
+      '/payment': {
+        target: 'http://10.2.15.161:30002',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/payment/, ''),
+      },
+    },
   },
 })

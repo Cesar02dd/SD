@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: mysql
-          image: cesar02dd/mysql:latest
+          image: cesar02dd/mysql:09ba6105c04d36981c0d7caa1ebf14de12937308
           ports:
             - containerPort: 3306
           volumeMounts:
@@ -33,7 +33,7 @@ spec:
               cpu: "10m"  
               memory: "200Mi"  
             limits:
-              cpu: "200m"  
+              cpu: "300m"  
               memory: "512Mi"  
       volumes:
         - name: storage

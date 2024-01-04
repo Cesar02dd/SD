@@ -15,7 +15,7 @@ const MyEventsPage = () => {
 
     const getData = async () => {
         try {
-            const response = await fetch('http://server:8000/api/user/' + userData.email + '/registeredEvents', {
+            const response = await fetch('/register/api/user/' + userData.email + '/registeredEvents', {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',

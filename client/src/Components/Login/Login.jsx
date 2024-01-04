@@ -21,7 +21,7 @@ const Login = () => {
         });
       };
       const handleSearch = () => {
-        fetch('http://server:8000/api/events', {
+        fetch('/register/api/events', {
           method: 'POST', 
           headers: {
             'Content-Type': 'application/json',

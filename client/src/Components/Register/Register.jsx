@@ -12,7 +12,7 @@ import './Register.css'
 const Register = () => {
     const location = useLocation();
     const navigate = useNavigate();
-    const eventId = location.state ? location.state.event : null;
+    const event = location.state ? location.state.event : null;
 
     const [showModal, setShowModal] = useState(false);
     const handleCloseModal = () => setShowModal(false);
@@ -30,7 +30,8 @@ const Register = () => {
       expirationDate: '',
     })
 
-    const handleInputChangePayment = (e) => {
+
+    /*const handleInputChangePayment = (e) => {
       const  {name, value} = e.target;
       setPaymentData({
           ...paymentData,
@@ -58,7 +59,27 @@ const Register = () => {
       .catch(error => {
         console.error('Error in payment:', error);
       });
-    };
+    };*/
+
+    const [login] = useState({
+      username: 'grupo2',
+      password: 'grupo2sd2023',
+    })
+
+    const currentDate = new Date();
+
+    // Format the date as "YYYY-MM-DD"
+    const formattedDate = `${currentDate.getFullYear()}-${String(currentDate.getMonth() + 1).padStart(2, '0')}-${String(currentDate.getDate()).padStart(2, '0')}`;
+
+
+    const [payment, setPayment] = useState({
+      amount: parseFloat(event.Price) * 100,
+      information: '',
+      expirationDate: formattedDate,
+    });
+
+    console.log(payment);
+
 
     const handleInputChange = (e) => {
         const  {name, value} = e.target;
@@ -66,13 +87,33 @@ const Register = () => {
             ...registerData,
             [name]: value
         });
+        setPayment((prevPayment) => ({
+          ...prevPayment,
+          information: 'Payment of ' + event.Name + ' from ' + value,
+        }));
     }
     const handleRegister = () => {
-  
-        registerData.event_id = eventId;
+        registerData.event_id = event.Id;
         console.log(JSON.stringify(registerData));
 
-        fetch('http://server:8000/api/register', {
+        fetch('/payment/api/login', {
+          method: 'POST',
+          headers: {
+              'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(login),
+        });
+
+        const responsePayment = fetch('/payment/api/payments', {
+          method: 'POST',
+          headers: {
+              'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(payment),
+        });
+        console.log(responsePayment);
+
+        fetch('/register/api/register', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -97,7 +138,7 @@ const Register = () => {
   return (
     <div className='container_register'>
       <Card className="text-center">
-            <Card.Header className='title_register'>Register in {eventId}</Card.Header>
+            <Card.Header className='title_register'>Register in {event.Name}</Card.Header>
                 <Card.Body>
                   <Form onSubmit={handleFormSubmit}>
                     <Form.Group as={Row} className="mb-3" controlId="forEventLocation">

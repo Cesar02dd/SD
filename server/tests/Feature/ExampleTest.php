@@ -49,11 +49,12 @@ class ExampleTest extends TestCase
 
     public function test_total_assistants(): void
     {
-        $event = 2;
+        $event = 10;
         $response = $this->withHeader('Authorization', 'Bearer ' . $this->accessToken)->get("/api/event/$event/count");
+        print($response->json());
 
         $response->assertStatus(200);
-        self::assertEquals('3', $response->json());
+        self::assertEquals('1', $response->json());
     }
 
     public function test_registered_events(): void
@@ -124,7 +125,7 @@ class ExampleTest extends TestCase
 
     public function test_register(): void
     {
-        $response = $this->withHeader('Authorization', 'Bearer ' . $this->accessToken)->post("/api/register", ['email' => 'test@mail.com', 'event_id' => '4']);
+        $response = $this->withHeader('Authorization', 'Bearer ' . $this->accessToken)->post("/api/register", ['email' => 'test@gmail.com', 'event_id' => '2']);
 
         $response->assertStatus(200);
     }

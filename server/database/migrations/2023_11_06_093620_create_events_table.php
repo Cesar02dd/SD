@@ -13,9 +13,7 @@ return new class extends Migration
     {
         Schema::create('events', function (Blueprint $table) {
             $table->id()->autoIncrement();
-            $table->string('name')->nullable(false);
-            $table->dateTime('date')->nullable(false);
-            $table->string('place')->nullable(false);
+            $table->string('IdEvents')->nullable(false);
             $table->timestamps();
         });
     }

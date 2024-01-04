@@ -20,7 +20,7 @@ const EventPage = () => {
     useEffect(() => {
         const fetchApis = async () => {
             try {
-                const responseEvents = await fetch('http://server:8080/api/events', {
+                const responseEvents = await fetch('/event/events', {
                     method: 'GET',
                     headers: {
                         'Content-Type': 'application/json',
@@ -29,17 +29,25 @@ const EventPage = () => {
                 const resultEvents = await responseEvents.json();
                 setEvents(resultEvents);
 
-                const responseCount = await fetch('http://server:8080/api/event/'+pageId.event+'/count', {
+                const responseCount = await fetch('/register/api/event/'+pageId.event+'/count', {
                     method: 'GET',
                     headers: {
                         'Content-Type': 'application/json',
                         'Authorization': 'Bearer ' + Globals.token,
                     },
                 });
-                const resultCount = await responseCount.json();
-                setCount(resultCount);
 
-                const responsePaid = await fetch('http://server:8080/api/event/'+pageId.event+'/paidUsers', {
+                let resultCount;
+                if (responseCount.status !== 404) {
+                    console.error(`Error: ${responseCount.status}`);
+                    resultCount = null;
+                } else {
+                    resultCount = await responseCount.json();
+                    setCount(resultCount);
+                    console.log("Testeeeeeeeeee: " + resultCount);
+                }
+                
+                /*const responsePaid = await fetch('/register/api/event/'+pageId.event+'/paidUsers', {
                     method: 'GET',
                     headers: {
                         'Content-Type': 'application/json',
@@ -47,7 +55,7 @@ const EventPage = () => {
                     },
                 });
                 const resultPaid = await responsePaid.json();
-                setPaid(resultPaid);
+                setPaid(resultPaid);*/
 
             } catch (error) {
                 setError(error);
@@ -70,9 +78,9 @@ const EventPage = () => {
                     {loading ? (
                         <p>Loading...</p>
                     ) : (
-                        <><Col className='titleCol'><>{events.map(event => event.id == pageId.event ? (<h2 key={event.id}>{event.name}</h2>):null)}</>
-                        <h2>Número total de participantes: {JSON.stringify(count, null, 2)}</h2>
-                        <EventDetail state={{ paid: paid }} /></Col></>
+                        <><Col className='titleCol'><>{events && events.map(event => event.Id == pageId.event ? (<h2 key={event.Id}>{event.Name}</h2>):null)}</>
+                        <h2>Número total de participantes: {count !== null ? JSON.stringify(count, null, 2) : JSON.stringify('0', null, 2)}</h2>
+                        {/*<EventDetail state={{ paid: paid }} />*/}</Col></>
                     )}
             </Row>
         </div >

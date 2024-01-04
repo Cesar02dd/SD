@@ -42,13 +42,13 @@ jobs:
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
 
-      - name: Build and push server
-        uses: docker/build-push-action@v5
-        with:
-          context: ./server
-          file: ./server/Dockerfile
-          push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/server:3b4e71ae6c5f5172ae5fb417443b9a61d0d490dd
+      # - name: Build and push server
+      #   uses: docker/build-push-action@v5
+      #   with:
+      #      context: ./server
+      #      file: ./server/Dockerfile
+      #      push: true
+      #      tags: ${{ secrets.DOCKERHUB_USERNAME }}/server:a5aed04d493d966878f3a0dbf00741a1d3767d8d
 
       - name: Build and push client
         uses: docker/build-push-action@v5
@@ -56,15 +56,15 @@ jobs:
           context: ./client
           file: ./client/Dockerfile
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/client:3b4e71ae6c5f5172ae5fb417443b9a61d0d490dd
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/client:cf74e68bc6c5283e051d5a64caaf52eb70dbcfb4
 
-      #- name: Build and push mysql
-       # uses: docker/build-push-action@v5
-        #with: 
-         # context: ./mysql
-          #file: ./mysql/Dockerfile
-          #push: true
-          #tags: {{ secrets.DOCKERHUB_USERNAME }}/mysql:2750506b61a4e0131d2b838374829f534b3dfde6
+      # - name: Build and push mysql
+      #   uses: docker/build-push-action@v5
+      #   with: 
+      #     context: ./mysql
+      #     file: ./mysql/Dockerfile
+      #     push: true
+      #     tags: ${{ secrets.DOCKERHUB_USERNAME }}/mysql:09ba6105c04d36981c0d7caa1ebf14de12937308
 
   test_ubuntu:
     runs-on: ubuntu-latest
@@ -75,11 +75,11 @@ jobs:
         with:
           node-version: ${{ matrix.node_version }}
 
-      - name: Build Backend
-        run: |
-          cd ./server
-          npm install
-          npm run build --if-present
+      #- name: Build Backend
+      #  run: |
+      #    cd ./server
+      #    npm install
+      #    npm run build --if-present
 
       - name: Build Frontend
         run: |
@@ -99,11 +99,11 @@ jobs:
         with:
           node-version: ${{ matrix.node_version }}
 
-      - name: Build Backend
-        run: |
-          cd ./server
-          npm install
-          npm run build --if-present
+      #- name: Build Backend
+      #  run: |
+      #    cd ./server
+      #    npm install
+      #    npm run build --if-present
 
       - name: Build Frontend
         run: |

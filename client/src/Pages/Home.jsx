@@ -6,7 +6,6 @@ import Col from 'react-bootstrap/Col';
 import "./Home.css";
 import {useEffect, useState} from "react";
 import Spinner from 'react-bootstrap/Spinner';
-import Globals from '../../globals';
 
 export default function Home (){
 
@@ -15,7 +14,7 @@ export default function Home (){
 
     const getData = async () => {
         try {
-            const response = await fetch('http://server:8000/api/events', {
+            const response = await fetch('/event/events', {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -28,6 +27,8 @@ export default function Home (){
 
             const data = await response.json();
             setData(data);
+            //const data1 = await response.text();
+            console.log('Server Toni: ' + data);
 
         } catch (error) {
             console.error('Error:', error);
