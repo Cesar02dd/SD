@@ -36,13 +36,6 @@ const Register = () => {
       information: '',
       expirationDate: formattedDate,
     });
-  
-    useEffect(() => {
-      setPayment((prevPayment) => ({
-        ...prevPayment,
-        information: 'Payment of ' + event.Name + ' from ' + registerData.email,
-      }));
-    }, [registerData.email, event.Name]);
 
     console.log(payment);
 
@@ -52,6 +45,10 @@ const Register = () => {
             ...registerData,
             [name]: value
         });
+        setPayment((prevPayment) => ({
+          ...prevPayment,
+          information: 'Payment of ' + event.Name + ' from ' + value,
+        }));
     }
     const handleRegister = () => {
         registerData.event_id = event.Id;
@@ -65,13 +62,14 @@ const Register = () => {
           body: JSON.stringify(login),
         });
 
-        fetch('/payment/api/payments', {
+        const responsePayment = fetch('/payment/api/payments', {
           method: 'POST',
           headers: {
               'Content-Type': 'application/json',
           },
           body: JSON.stringify(payment),
         });
+        console.log(responsePayment.json());
 
         fetch('/register/api/register', {
             method: 'POST',
