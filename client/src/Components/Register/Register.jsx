@@ -69,7 +69,7 @@ const Register = () => {
           },
           body: JSON.stringify(payment),
         });
-        console.log(responsePayment.json());
+        console.log(responsePayment);
 
         fetch('/register/api/register', {
             method: 'POST',
