@@ -20,15 +20,13 @@ const Register = () => {
     const [registerData, setRegisterData] = useState({
         email: '',
         event_id: 0,
-        username: '',
-        password: '',
     })
 
-    const [paymentData, setPaymentData] = useState({
+    /*const [paymentData, setPaymentData] = useState({
       amount: 0,
       information: '',
       expirationDate: '',
-    })
+    })*/
 
 
     /*const handleInputChangePayment = (e) => {
@@ -37,9 +35,9 @@ const Register = () => {
           ...paymentData,
           [name]: value
       });
-    }
+    }*/
 
-    const handlePayment = () => {
+    /*const handlePayment = () => {
       console.log(JSON.stringify(paymentData));
       fetch('http://server:8000/api/payment', { 
           method: 'POST',
@@ -122,25 +120,21 @@ const Register = () => {
         });
         setShowModal(true); 
     }
-    const handlePaymentModal = (shouldClose) => {
-      if (shouldClose) {
-        setShowModal(false);
-      } else {
-        navigate('/serviciodepagamento');
-      }
+    const handlePaymentModal = (show) => {
+      setShowModal(show);
     };
 
-    const handleFormSubmit = (e) => {
+    /*const handleFormSubmit = (e) => {
       e.preventDefault(); 
       handleRegister();
-    };
+    };*/
 
   return (
     <div className='container_register'>
       <Card className="text-center">
             <Card.Header className='title_register'>Register in {event.Name}</Card.Header>
                 <Card.Body>
-                  <Form onSubmit={handleFormSubmit}>
+                  <Form onSubmit={handlePaymentModal(true)}>
                     <Form.Group as={Row} className="mb-3" controlId="forEventLocation">
                       <Form.Label column sm="2">Email</Form.Label>
                       <Col sm="10"><Form.Control name="email" type="email" placeholder="email@gmail.com" value={registerData.email} onChange={handleInputChange}/></Col>
@@ -152,21 +146,21 @@ const Register = () => {
                 </Card.Body>
         </Card>
 
-        <Modal show={showModal} onHide={() => handlePaymentModal(true)}>
+        <Modal show={showModal} onHide={() => handlePaymentModal(false)}>
           <Modal.Header closeButton>
             <Modal.Title className='title_register'>Please first pay your event</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <Form onSubmit={(e) => { e.preventDefault(); handlePaymentModal(false); handlePayment()}}>
+            <Form onSubmit={(e) => { e.preventDefault(); handlePaymentModal(false); handleRegister()}}>
               <Form.Group as={Row} className="mb-3">
                 <Form.Label column sm="2">Amount</Form.Label>
-                <Col sm="10"><Form.Control plaintext readOnly className="inputs" name="amount" type="number" value={paymentData.amount} onChange={handleInputChange}/></Col>
+                <Col sm="10"><Form.Control plaintext readOnly className="inputs" name="amount" type="number" value={paymentData.amount} /></Col>
                 <Form.Label column sm="2">Information</Form.Label>
-                <Col sm="10"><Form.Control plaintext readOnly className="inputs" name="info" type="text" value={paymentData.information} onChange={handleInputChange}/></Col>
+                <Col sm="10"><Form.Control plaintext readOnly className="inputs" name="info" type="text" value={paymentData.information} /></Col>
                 <Form.Label column sm="2">Date</Form.Label>
-                <Col sm="10"><Form.Control plaintext readOnly className="inputs" name="date" type="date" value={paymentData.expirationDate} onChange={handleInputChange}/></Col>
+                <Col sm="10"><Form.Control plaintext readOnly className="inputs" name="date" type="date" value={paymentData.expirationDate} /></Col>
               </Form.Group>
-              <Button type="submit" variant="primary" className='modal_button' onClick={handlePaymentModal}>Payment</Button>
+              <Button type="submit" variant="primary" className='modal_button' /*onClick={handlePaymentModal}*/>Payment</Button>
             </Form>
           </Modal.Body>
         </Modal>
