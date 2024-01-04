@@ -31,11 +31,18 @@ const Register = () => {
     const formattedDate = `${currentDate.getFullYear()}-${String(currentDate.getMonth() + 1).padStart(2, '0')}-${String(currentDate.getDate()).padStart(2, '0')}`;
 
 
-    const [payment] = useState({
-      amount: event.Price,
-      information: 'Payment of ' + event.Name + 'from ' + registerData.email,
+    const [payment, setPayment] = useState({
+      amount: event.Price * 100,
+      information: '',
       expirationDate: formattedDate,
-    })
+    });
+  
+    useEffect(() => {
+      setPayment((prevPayment) => ({
+        ...prevPayment,
+        information: 'Payment of ' + event.Name + ' from ' + registerData.email,
+      }));
+    }, [registerData.email, event.Name]);
 
     console.log(payment);
 
