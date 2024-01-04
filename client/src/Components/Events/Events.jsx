@@ -5,13 +5,12 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import localImage from '../Assets/location.png';
 import dataImage from '../Assets/data.png';
-import { useEffect, useState } from 'react';
-import Globals from '../../../globals';
 import EventCount from './EventCount';
 
 const Events = ({state}) => {
 
     const data = state.event;
+    console.log("Teste: " + data);
 
     return (
         <div className='eventsRes'>
