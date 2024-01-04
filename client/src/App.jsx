@@ -7,6 +7,7 @@ import LoginPage from './Pages/LoginPage.jsx';
 import EventPage from './Pages/EventPage.jsx';
 import MyEventsPage from './Pages/MyEventsPage.jsx';
 import SearchEventsPage from './Pages/SearchEventsPage.jsx';
+import PaymentPage from './Pages/PaymentPage.jsx';
 
 function App() {
     return (
@@ -22,6 +23,7 @@ function App() {
                         <Route path='/:event' element={<EventPage/>} />
                         <Route path='/searchEvents' element={<SearchEventsPage/>} />
                         <Route path='/myEvents' element={<MyEventsPage/>} />
+                        <Route path='/Payment' element={<PaymentPage/>} />
                     </Routes>
                 </BrowserRouter>
             </div>
