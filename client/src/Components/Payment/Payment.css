@@ -1,0 +1,9 @@
+.inputs{
+    display: flex;
+    flex-direction: row;
+    border-style: solid;
+    border-radius: 10px;
+    border-width: 2px;
+    border-color: rgb(51, 2, 45);
+    margin: 1%;
+}
