@@ -22,7 +22,7 @@ spec:
     spec:
       containers:
         - name: client
-          image: cesar02dd/client:a4217a61732fcf9a6ed152d2b97176f9de451837
+          image: cesar02dd/client:e0109a5f1b41186735dd6fdde3d535c4890eefbd
           ports:
             - containerPort: 5173
           #env:

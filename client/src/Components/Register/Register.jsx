@@ -91,7 +91,7 @@ const Register = () => {
         }));
     }
 
-    const handleRegister = () => {
+    const handleRegister = async () => {
         registerData.event_id = event.Id;
         console.log(JSON.stringify(registerData));
 
@@ -103,14 +103,20 @@ const Register = () => {
           body: JSON.stringify(login),
         });
 
-        const responsePayment = fetch('/payment/api/payments', {
+        const responsePayment = await fetch('/payment/api/payments', {
           method: 'POST',
           headers: {
-              'Content-Type': 'application/json',
+            'Content-Type': 'application/json',
           },
           body: JSON.stringify(payment),
         });
-        console.log(responsePayment);
+      
+        if (responsePayment.ok) {
+          const paymentResponseJson = await responsePayment.json();
+          console.log(paymentResponseJson);
+        } else {
+          console.error('Error in the payment request:', responsePayment.status);
+        }
 
         fetch('/register/api/register', {
             method: 'POST',

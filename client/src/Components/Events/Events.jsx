@@ -10,7 +10,7 @@ import EventCount from './EventCount';
 const Events = ({state}) => {
 
     const data = state.event;
-    console.log("Teste: " + data);
+    //console.log("Teste: " + data);
 
     return (
         <div className='eventsRes'>

@@ -6,7 +6,7 @@ import Globals from '../../../globals';
 const EventCount = ({state}) => {
 
     const data = state;
-    console.log("Num:  " + data.count);
+    //console.log("Num:  " + data.count);
     const [count, setCount] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
