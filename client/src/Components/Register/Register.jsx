@@ -90,6 +90,7 @@ const Register = () => {
           information: 'Payment of ' + event.Name + ' from ' + value,
         }));
     }
+
     const handleRegister = () => {
         registerData.event_id = event.Id;
         console.log(JSON.stringify(registerData));
@@ -120,6 +121,7 @@ const Register = () => {
         });
         setShowModal(true); 
     }
+
     const handlePaymentModal = (show) => {
       setShowModal(show);
     };
@@ -154,11 +156,11 @@ const Register = () => {
             <Form onSubmit={(e) => { e.preventDefault(); handlePaymentModal(false); handleRegister()}}>
               <Form.Group as={Row} className="mb-3">
                 <Form.Label column sm="2">Amount</Form.Label>
-                <Col sm="10"><Form.Control plaintext readOnly className="inputs" name="amount" type="number" value={paymentData.amount} /></Col>
+                <Col sm="10"><Form.Control plaintext readOnly className="inputs" name="amount" type="number" value={payment.amount} /></Col>
                 <Form.Label column sm="2">Information</Form.Label>
-                <Col sm="10"><Form.Control plaintext readOnly className="inputs" name="info" type="text" value={paymentData.information} /></Col>
+                <Col sm="10"><Form.Control plaintext readOnly className="inputs" name="info" type="text" value={payment.information} /></Col>
                 <Form.Label column sm="2">Date</Form.Label>
-                <Col sm="10"><Form.Control plaintext readOnly className="inputs" name="date" type="date" value={paymentData.expirationDate} /></Col>
+                <Col sm="10"><Form.Control plaintext readOnly className="inputs" name="date" type="date" value={payment.expirationDate} /></Col>
               </Form.Group>
               <Button type="submit" variant="primary" className='modal_button' /*onClick={handlePaymentModal}*/>Payment</Button>
             </Form>
