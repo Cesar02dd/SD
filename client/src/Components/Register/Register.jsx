@@ -94,7 +94,6 @@ const Register = () => {
 
     const handleRegister = async () => {
         registerData.event_id = event.Id;
-        console.log(JSON.stringify(registerData));
 
         fetch('/payment/api/login', {
           method: 'POST',
@@ -115,10 +114,13 @@ const Register = () => {
         if (responsePayment.ok) {
           const paymentResponseJson = await responsePayment.json();
           console.log(paymentResponseJson);
+
           setRegisterData((prevData) => ({
             ...prevData,
-            payment_id: paymentResponseJson.referenceDetails.id, 
+            payment_id: paymentResponseJson.referenceDetails.id.toString(), 
           }));
+          
+          console.log(JSON.stringify(registerData));
         } else {
           console.error('Error in the payment request:', responsePayment.status);
         }
