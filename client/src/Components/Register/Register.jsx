@@ -20,7 +20,6 @@ const Register = () => {
     const [registerData, setRegisterData] = useState({
         email: '',
         event_id: 0,
-        payment_id: '',
     })
 
     /*const [paymentData, setPaymentData] = useState({
@@ -115,24 +114,23 @@ const Register = () => {
           const paymentResponseJson = await responsePayment.json();
           console.log(paymentResponseJson);
 
-          setRegisterData((prevData) => ({
-            ...prevData,
-            payment_id: paymentResponseJson.referenceDetails.id.toString(), 
-          }));
-          
-          console.log(JSON.stringify(registerData));
-        } else {
-          console.error('Error in the payment request:', responsePayment.status);
-        }
-
-        fetch('/register/api/register', {
+          fetch('/register/api/register', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify(registerData),
-        });
+            body: JSON.stringify({
+              ...registerData,
+              payment_id: paymentResponseJson.referenceDetails.id,
+            }),
+          });
 
+          console.log(paymentResponseJson.referenceDetails.id);
+        } else {
+          console.error('Error in the payment request:', responsePayment.status);
+        }
+
+        console.log(JSON.stringify(registerData));
         navigate('/');
     }
 
