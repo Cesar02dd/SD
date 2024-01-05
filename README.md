@@ -1,6 +1,6 @@
 <h1>Teste em um Sistema Distribuido</h1>
 
-IMPORTANTE: O nosso serviço guarda os IDs do pagamento efetuado e do respetivo evento dos outros serviços quando é feito um registo.
+IMPORTANTE: O nosso serviço guarda os IDs do pagamento efetuado e do respetivo evento dos outros serviços quando é feito um registo. Assim como também faz a respetiva conversão de unidades para que seja possivel realizar o pagamento do evento.
 
 1. Emails de teste:
 
