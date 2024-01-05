@@ -1,3 +1,22 @@
+<h1>Teste em um Sistema Distribuido</h1>
+
+1. Emails de teste:
+
+* test@gmail.com
+* sara@gmail.com
+* john@gmail.com
+* peter@gmail.com
+
+2. Para ver em que eventos um utilizador esta registado aceder à opção do NavBar chamada <b> My Events </b>
+
+3. Caso queiram apagar os registos efetuados, aceder no pod do mysql e fazer:
+   - ```kubectl exec -it <pod-name>  -n sge -- mysql -u root -p```
+   - Dar Enter quando pedir a password
+   - USE sd;
+   - DELETE FROM user_event_registration;
+
+<h1>Instalação</h1>
+
 Instalar o php 8.2.12 -> https://windows.php.net/downloads/releases/php-8.2.12-Win32-vs16-x64.zip
 
 No ficheiro php.ini do php instalado descomentar (tirar ";") as linhas que contenham as seguintes coisas:
@@ -27,7 +46,6 @@ Na pasta Server:
 9. php artisan serve (para executar o backend)
 
 Na pasta client: <br>
-
 9. aceder à pasta react fazendo cd react
 10. npm install
 11. npm run dev
