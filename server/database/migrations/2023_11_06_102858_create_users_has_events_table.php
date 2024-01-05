@@ -18,7 +18,7 @@ return new class extends Migration
             $table->foreignId('event_id');
             $table->foreign('event_id')->references('id')->on('events');
             $table->dateTime('registered_date')->nullable(false);
-            $table->dateTime('paid_date')->nullable();
+            $table->string('payment_id')->nullable();
             $table->timestamps();
         });
     }
