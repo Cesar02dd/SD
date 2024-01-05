@@ -25,7 +25,7 @@ const SiteNavbar = () => {
           <Nav className="me-auto nav">
               <Nav.Link className='nav-link' href="/">Home</Nav.Link>
               <Nav.Link className='nav-link' href="/searchevents">My events</Nav.Link>
-              <Nav.Link className='nav-link' href="/allevents">All events</Nav.Link>
+              {/* <Nav.Link className='nav-link' href="/allevents">All events</Nav.Link> */}
           </Nav>
           <Nav className='login-button'>
               <Button className='custom-button' href="#">Login</Button>
