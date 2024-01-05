@@ -49,7 +49,7 @@ class UserEventController extends Controller
         if (!$event) {
             return response()->json(0);
         }
-        $data = $event->assistants()->select('users.name', 'users.email', 'user_event_registration.registered_date', 'user_event_registration.paid_date')->where('user_event_registration.paid_date', '!=', null)->get();
+        $data = $event->assistants()->select('users.name', 'users.email', 'user_event_registration.registered_date', 'user_event_registration.payment_id')->where('user_event_registration.paid_date', '!=', null)->get();
 
         return response()->json($data);
     }

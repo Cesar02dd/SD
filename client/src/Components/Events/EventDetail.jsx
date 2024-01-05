@@ -28,7 +28,7 @@ const EventDetail = ({ state }) => {
                                     <p>Data de registo: {paid.registered_date}</p>
                                 </Card.Text>
                                 <Card.Text>
-                                    <p>Data de pagamento: {paid.paid_date}</p>
+                                    <p>ID de pagamento: {paid.payment_id}</p>
                                 </Card.Text>
                             </Col>
                         </Row>
