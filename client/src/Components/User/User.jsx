@@ -9,17 +9,17 @@ const User = ({state}) => {
   console.log(data);
   return (
     <div className='eventsResult'>
-      {data.map(event => (
-                <Card key={event.id} className='card_container'>
-                    <Card.Header className='title_event'>{event.name}</Card.Header>
+      {data.map((event, index) => (
+                <Card key={index} className='card_container'>
+                    <Card.Header className='title_event'>Id no serviço de eventos: {event.IdEvents}</Card.Header>
                     <Card.Body>
                         <Card.Text className='subtitle'>
                             <Card.Img variant="left" src={localImage} className='images' />
-                            {event.place}
+                            Id no serviço de pagamentos: {event.payment_id}
                         </Card.Text>
                         <Card.Text className='subtitle'>
                             <Card.Img variant="left" src={dataImage} className='images' />
-                            {event.date}
+                            Data de registo: {event.registered_date}
                         </Card.Text>
                     </Card.Body>
                 </Card>
