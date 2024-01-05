@@ -20,6 +20,7 @@ const Register = () => {
     const [registerData, setRegisterData] = useState({
         email: '',
         event_id: 0,
+        payment_id: '',
     })
 
     /*const [paymentData, setPaymentData] = useState({
@@ -114,6 +115,10 @@ const Register = () => {
         if (responsePayment.ok) {
           const paymentResponseJson = await responsePayment.json();
           console.log(paymentResponseJson);
+          setRegisterData((prevData) => ({
+            ...prevData,
+            payment_id: paymentResponseJson.referenceDetails.id, 
+          }));
         } else {
           console.error('Error in the payment request:', responsePayment.status);
         }

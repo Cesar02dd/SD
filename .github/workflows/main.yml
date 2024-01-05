@@ -42,13 +42,13 @@ jobs:
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
 
-      - name: Build and push server
-        uses: docker/build-push-action@v5
-        with:
-           context: ./server
-           file: ./server/Dockerfile
-           push: true
-           tags: ${{ secrets.DOCKERHUB_USERNAME }}/server:b973920a98af3982de879493e066156d0a692a67
+      # - name: Build and push server
+      #   uses: docker/build-push-action@v5
+      #   with:
+      #      context: ./server
+      #      file: ./server/Dockerfile
+      #      push: true
+      #      tags: ${{ secrets.DOCKERHUB_USERNAME }}/server:b973920a98af3982de879493e066156d0a692a67
 
       - name: Build and push client
         uses: docker/build-push-action@v5
@@ -56,7 +56,7 @@ jobs:
           context: ./client
           file: ./client/Dockerfile
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/client:b973920a98af3982de879493e066156d0a692a67
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/client:6d1ad1200022ed802138c965e099d86662201c98
 
       # - name: Build and push mysql
       #   uses: docker/build-push-action@v5
