@@ -1,5 +1,7 @@
 <h1>Teste em um Sistema Distribuido</h1>
 
+IMPORTANTE: O nosso serviço guarda os IDs do pagamento efetuado e do respetivo evento dos outros serviços quando é feito um registo.
+
 1. Emails de teste:
 
 * test@gmail.com
@@ -14,6 +16,14 @@
    - Dar Enter quando pedir a password
    - USE sd;
    - DELETE FROM user_event_registration;
+  
+<h1>Endpoints principais</h1>
+
+1. Method: POST. Path: /register. Descrição: Realiza um registo de um utilizador num evento.
+2. Method: GET. Path: /isRegistered. Descrição: Devolve "OK" se um utilizador pode-se registar num evento, caso contrario devolve que já esta inscrito.
+3. Method: GET. Path: /user/{email}/paidEvents. Descrição: Devolve os eventos em que esta regisatdo um utilizador.
+4. Method: GET. Path: /event/{id}/count. Descrição: Devolve o numero total de utilizadores registados num evento em especifico.
+5. Method: GET. Path: /event/{id}/paidUsers. Descrição: Devolve os utilizadores que estão registados num evento em especifico.
 
 <h1>Instalação</h1>
 
