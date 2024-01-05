@@ -16,7 +16,7 @@ class UserEventController extends Controller
         if (!$user) {
             return response()->json(['message' => 'User not found'], 404);
         }
-        $events = $user->events()->select('events.id', 'events.name', 'events.date', 'events.place')->get();
+        $events = $user->events()->select('events.id', 'events.IdEvents')->get();
 
         return response()->json($events);
     }
@@ -49,7 +49,7 @@ class UserEventController extends Controller
         if (!$event) {
             return response()->json(0);
         }
-        $data = $event->assistants()->select('users.name', 'users.email', 'user_event_registration.registered_date', 'user_event_registration.payment_id')->where('user_event_registration.paid_date', '!=', null)->get();
+        $data = $event->assistants()->select('users.name', 'users.email', 'user_event_registration.registered_date', 'user_event_registration.payment_id')->where('user_event_registration.payment_id', '!=', null)->get();
 
         return response()->json($data);
     }
@@ -60,7 +60,7 @@ class UserEventController extends Controller
         if (!$user) {
             return response()->json(['message' => 'Event not found'], 404);
         }
-        $data = $user->registeredEvents()->select('events.id', 'events.name', 'events.date', 'events.place', 'user_event_registration.registered_date', 'user_event_registration.paid_date')->get();
+        $data = $user->registeredEvents()->select('events.IdEvents', 'user_event_registration.registered_date', 'user_event_registration.payment_id')->get();
 
         return response()->json($data);
     }
@@ -71,8 +71,8 @@ class UserEventController extends Controller
         if (!$user) {
             return response()->json(['message' => 'Event not found'], 404);
         }
-        $data = $user->registeredEvents()->select('events.id', 'events.name', 'events.date', 'events.place', 'user_event_registration.registered_date', 'user_event_registration.paid_date')
-                                        ->where('user_event_registration.paid_date', '!=', null)->get();
+        $data = $user->registeredEvents()->select('events.IdEvents', 'user_event_registration.registered_date', 'user_event_registration.payment_id')
+                                        ->where('user_event_registration.payment_id', '!=', null)->get();
 
         return response()->json($data);
     }
